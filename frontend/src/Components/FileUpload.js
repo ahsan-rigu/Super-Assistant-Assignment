@@ -29,7 +29,7 @@ const FileUpload = ({ title, setData, data }) => {
   const value = data.find((field) => field.title === title).value;
 
   return (
-    <section className="file-upload" id={title}>
+    <section className="file-upload" id={title.replaceAll(" ", "-")}>
       <span>
         {" "}
         {title} <b className="red">*</b>
