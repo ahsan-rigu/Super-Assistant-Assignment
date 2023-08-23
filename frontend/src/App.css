@@ -8,6 +8,20 @@ body{
   background-color: rgb(240, 235, 248);
 }
 
+section:has(.error){
+  border: 1px solid rgb(217,48,37) !important;
+}
+
+section:has(.error) input, section:has(.error) textarea{
+  border-bottom: 1px solid rgb(217,48,37) !important;
+}
+
+.error{
+  color: rgb(217,48,37);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
 
 .App form {
   display: flex;
@@ -51,14 +65,17 @@ form header p{
 
 input[type="radio"]{
   transform: translateY(-2px) scale(1.5);
+  cursor: pointer;
 }
 
 input[type="checkbox"]{
   transform: scale(1.5);
+  cursor: pointer;
 }
 
 .App form input:checked{
   accent-color: rgb(103, 58, 183);
+  
 }
 
 
@@ -154,6 +171,35 @@ input[type="file"]::file-selector-button{
   display: none;
 }
 
+input[type="file"].hidden{
+  opacity: 0;
+}
+
+input[type="file"].file-deats{
+  display: block;
+  padding: .75rem;
+  border: 1px solid #dadce0;
+  border-right: none;
+  border-radius: 3px;
+  width: 9rem;
+}
+
+.btn-clear{
+  background-color: inherit;
+  border: 1px solid #dadce0;
+  border-left: none;
+  margin-left: -.6rem;
+  padding: 2px;
+  color: grey;
+  z-index: 999;
+  cursor: pointer;
+
+}
+
+.wrapper{
+  display: flex;
+}
+
 .file-selector{
   display: flex;
   align-items: center;
@@ -167,4 +213,77 @@ input[type="file"]::file-selector-button{
 .file-selector:hover{
 background-color: #e3efff54;
 border: 1px solid #cfe4ff;
+}
+
+.file-selector.hidden{
+  display: none;
+}
+
+form .bottom-bar{
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-top: -.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+form .bottom-bar .bar-container{
+   display: flex;
+   align-items: center;
+}
+
+form .bottom-bar .bar{
+  display: inline-block;
+  width: 10rem;
+  border: .25rem solid rgb(68, 183, 58);
+  border-radius: .5rem;
+  margin: 1rem;
+}
+
+form .bottom-bar button{
+  color: white;
+  background-color: rgb(103, 58, 183);
+  border-radius: .25rem;
+  border: none;
+  padding: .5rem 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+form .bottom-bar .clear-btn{
+  background-color: transparent;
+  color:  rgb(103, 58, 183);
+  padding: .5rem;
+  cursor: pointer;
+  text-decoration: none;
+} 
+
+.submitted-cont{
+  max-width: 37rem;
+  margin: auto;
+  border-radius: .5rem;
+  font-family: 'Roboto', sans-serif;
+  padding: 1.5rem;
+  background-color: #fff;
+  border: 1px solid #dadce0;
+  margin: .5rem auto;
+  border-top: .75rem solid rgb(103, 58, 183);
+}
+
+.submitted-cont p{
+  margin-bottom: 2rem;
+  font-size: .9rem;
+  font-weight: 400; 
+}
+
+.submitted-cont a{
+  color: #1a73e8;
+  text-decoration: underline;
+}
+
+.submitted-cont h1{
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
 }

@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { validateFunctions } from "../Utils/ValidiationFunctions";
 import { MdErrorOutline } from "react-icons/md";
 
-const Paragraph = ({ title, setData, submitError }) => {
-  const textAreaRef = React.useRef();
-
+const Dropdown = ({ title, options, setData, submitError }) => {
   const [changeError, setChangeError] = useState(false);
 
   const handleChange = (e) => {
@@ -22,37 +20,23 @@ const Paragraph = ({ title, setData, submitError }) => {
   };
 
   useEffect(() => {
-    textAreaRef.current.addEventListener("input", function () {
-      if (this.scrollHeight > 24) {
-        this.style.height = "auto";
-        this.style.height = this.scrollHeight - 18 + "px";
-        this.style.height = this.scrollHeight + "px";
-      } else {
-        this.style.height = "16px";
-      }
-    });
-  }, []);
-
-  useEffect(() => {
     if (submitError) {
       setChangeError(true);
     }
   }, [submitError, title]);
 
   return (
-    <section className="long-answer" id={title}>
+    <section className="dropdown" id={title}>
       <span>
         {" "}
-        {title} <b className="red">*</b>
+        Dropdown <b className="red">*</b>
       </span>
-      <textarea
-        name="paragraph"
-        id="long-answer"
-        ref={textAreaRef}
-        style={{ height: "16px" }}
-        placeholder="Your answer"
-        onChange={handleChange}
-      />
+      <select name="dropdown" id="dropdown" onChange={handleChange}>
+        <option value="">Choose</option>
+        {options.map((option) => (
+          <option key={title + option}>{option}</option>
+        ))}
+      </select>
       {changeError && (
         <span className="error">
           <MdErrorOutline size={"1.5rem"} /> This is a required question
@@ -62,4 +46,4 @@ const Paragraph = ({ title, setData, submitError }) => {
   );
 };
 
-export default Paragraph;
+export default Dropdown;
