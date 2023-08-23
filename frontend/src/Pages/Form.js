@@ -35,7 +35,10 @@ const Form = () => {
       formObject[field.title.replaceAll(" ", "")] = field.value;
     }
     try {
-      await axios.post("http://localhost:5000/data", formObject);
+      await axios.post(
+        "https://super-assistant-backend.onrender.com/data",
+        formObject
+      );
       navigate("/submitted");
     } catch (error) {
       alert("unable to submit form");
