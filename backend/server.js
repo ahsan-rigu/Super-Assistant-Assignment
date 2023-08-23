@@ -4,7 +4,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./.env" });
 const mongoose = require("mongoose");
-const Data = require("./DataSchema");
+const Data = require("./dataSchema");
 
 const app = express();
 
